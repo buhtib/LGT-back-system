@@ -7,6 +7,7 @@ import publicFn from '@/public'
 
 import MultiTab from './MultiTab/MultiTab'
 import PageHeader from './PageHeader/PageHeader'
+import LoadingBtn from './Botton/LoadingBtn'
 
 //使用阿里图标库 的IconFont组件
 import { Icon } from 'ant-design-vue';
@@ -20,6 +21,7 @@ export default {
       Vue.component('MultiTab',MultiTab)
       Vue.component('PageHeader',PageHeader)
       Vue.component('IconFont',IconFont)
+      Vue.component('LoadingBtn',LoadingBtn)
       
       publicFn(Vue)
     },
