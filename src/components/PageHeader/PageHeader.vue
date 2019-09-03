@@ -10,7 +10,7 @@
           <a-avatar
             class="avatar"
             size="small"
-            src="http://image.biaobaiju.com/uploads/20180803/20/1533299281-EjSKFdZkAs.jpeg"
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567513343557&di=c35f59bccbd4869c86fa9dd37e7f81c4&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201712%2F22%2F20171222223729_d8HCB.jpeg"
           />
           <span>{{ nickname }}</span>
         </span>

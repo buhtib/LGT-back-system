@@ -12,20 +12,20 @@
     <logo :showTitle="showTitle" title="LGT后台系统"/>
 
     <a-menu
-      :defaultSelectedKeys="[leftTabList[0].children[0].meta.key]"
+      :defaultSelectedKeys="defaultSelectedKeys"
       :defaultOpenKeys="tabKeysArr"
       mode="inline"
       theme="dark"
     >
 
-      <a-sub-menu :key="leftTabItem.meta.key" v-for="leftTabItem in leftTabList" >
+      <a-sub-menu :key="leftTabItem.meta.key" v-for="leftTabItem in leftTabList"  >
         <span slot="title">
           <icon-font :type="leftTabItem.meta.icon" />
           <span>{{leftTabItem.meta.text}}</span>
         </span>
 
         <a-menu-item :key="leftTabItemChild.meta.key" v-for="leftTabItemChild in leftTabItem.children">
-          <router-link :to="{path:leftTabItemChild.path}">
+          <router-link :to="{name:leftTabItemChild.name}">
             {{leftTabItemChild.meta.text}}
           </router-link>
         </a-menu-item>
@@ -42,32 +42,36 @@ import { mapMutations, mapState } from 'vuex'
 import { routes } from '@/router'
 
 export default {
-  components: {
-    logo
-  },
-  computed:{
-      ...mapState(['collapsed']),
-      //展开全部 子菜单的key集合
-      tabKeysArr() {
-        return this.leftTabList.map(item=>  item.meta.key)
-      }
-  },
+    components: {
+        logo
+    },
+    data() {
+        return {
+            showTitle: true,
+            leftTabList:routes[1].children,
+        };
+    },
+    computed:{
+        ...mapState(['collapsed']),
+        //展开全部 子菜单的key集合
+        tabKeysArr() {
+            return this.leftTabList.map(item=>  item.meta.key)
+        },
+        //保持选中菜单项的选中状态
+        defaultSelectedKeys() {
+            return [this.$route.meta.key]
+        }
+    },
 
-  data() {
-    return {
-      showTitle: true,
-      leftTabList:routes[1].children
-    };
-  },
-  methods: {
-    ...mapMutations(['changeCollapsed']),
-    /**
-     * 响应式收缩
-     */
-    onBreakpoint(collapsed, type) {
-        this.$store.commit('changeCollapsed', collapsed)
+    methods: {
+        ...mapMutations(['changeCollapsed']),
+        /**
+         * 响应式收缩
+         */
+        onBreakpoint(collapsed, type) {
+            this.$store.commit('changeCollapsed', collapsed)
+        },
     }
-  }
 };
 </script>
 

@@ -24,71 +24,68 @@ export const routes = [{
     {
         path: '/prolist',
         name: 'prolist',
-        /**
-         * 防止 刷新页面后菜单还在刷新前选中的的页面(自动跳到第一个)
-         */
-        beforeEnter(to, from, next){
-            if(to.path !== '/cashRecord/cashRecord1') {
-                next('/cashRecord/cashRecord1')
-            }else {
-                next()
-            }
-        },
         component: BasicLayout,
+        redirect: '/cashRecord/cashRecord',
         children: [{
                 path: '/cashRecord',
                 name: 'cashRecords',
-                redirect: '/cashRecord/cashRecord1',
-                component:RouterView,
+                component: RouterView,
                 meta: {
+                    //key 为控制左侧菜单选中的key
                     key: 'cashRecord',
                     icon: 'icon-shouyin',
                     text: '收银单记录'
                 },
-                children: [
-                    {
-                        path: '/cashRecord/cashRecord1',
-                        name: 'cashRecord1',
-                        component: () => import( /* webpackChunkName: "page" */ '@/pages/prolist/CashRecord/CashRecord'),
-                        meta: {
-                            key: 'cashRecord1',
-                            text: '收银单记录'
-                        },
-                    }
-                ]
+                children: [{
+                    path: 'cashRecord',
+                    name: 'cashRecord',
+                    component: () => import( /* webpackChunkName: "page" */ '@/pages/prolist/CashRecord/CashRecord'),
+                    meta: {
+                        key: 'cashRecord',
+                        text: '收银单记录'
+                    },
+                }]
             },
             {
                 path: '/billSearch',
                 name: 'billSearchs',
-                redirect: '/billSearch/billSearch1',
-                component:RouterView,
+                component: RouterView,
                 meta: {
                     key: 'billSearch',
                     icon: 'icon-zhangdan',
                     text: '账单查询'
                 },
                 children: [{
-                    path: '/billSearch/billSearch1',
+                    path: 'billSearch1',
                     name: 'billSearch',
                     component: () => import( /* webpackChunkName: "page" */ '@/pages/prolist/BillSearch/BillSearch'),
                     meta: {
                         key: 'billSearch1',
                         text: '账单查询'
                     },
+
+                }, {
+                    path: 'billSearch12',
+                    name: 'billSearch2',
+                    component: () => import( /* webpackChunkName: "page" */ '@/pages/prolist/BillSearch/BillSearch'),
+                    meta: {
+                        key: 'billSearch12',
+                        text: '账单查询2'
+                    },
+
                 }, ]
             },
             {
                 path: '/peopleList',
                 name: 'peopleLists',
-                redirect: '/peopleList/peopleList1',
-                component:RouterView,
+                component: RouterView,
                 meta: {
                     key: 'peopleList',
                     icon: 'icon-mingdan',
                     text: '名单录入'
                 },
                 children: [{
-                        path: '/peopleList/peopleList1',
+                        path: 'peopleList1',
                         name: 'peopleList',
                         component: () => import( /* webpackChunkName: "page" */ '@/pages/prolist/PeopleList/PeopleList'),
                         meta: {
@@ -102,15 +99,14 @@ export const routes = [{
             {
                 path: '/vipPeopleList',
                 name: 'vipPeopleLists',
-                redirect: '/vipPeopleList/vipPeopleList1',
-                component:RouterView,
+                component: RouterView,
                 meta: {
                     key: 'vipPeopleList',
                     icon: 'icon-vip',
                     text: 'VIP客户'
                 },
                 children: [{
-                    path: '/vipPeopleList/vipPeopleList1',
+                    path: 'vipPeopleList1',
                     name: 'vipPeopleList',
                     component: () => import( /* webpackChunkName: "page" */ '@/pages/prolist/VipPeopleList/VipPeopleList'),
                     meta: {

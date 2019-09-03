@@ -41,7 +41,7 @@ export default {
   name: "BasicLayout",
   data() {
     return {
-      footerText:'美发管理系统',
+      footerText:'',
       
     }
   },

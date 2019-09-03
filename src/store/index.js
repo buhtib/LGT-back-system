@@ -6,7 +6,7 @@ Vue.use(Vuex)
 
 const state = {
     nickname:'超级管理员',
-    avatar:'~@/assets/img/logo.svg',
+    avatar:'',
     /**
      * 控制左边布局 侧边栏菜单收缩
      */
