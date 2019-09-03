@@ -10,7 +10,7 @@
           <a-avatar
             class="avatar"
             size="small"
-            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+            src="http://image.biaobaiju.com/uploads/20180803/20/1533299281-EjSKFdZkAs.jpeg"
           />
           <span>{{ nickname }}</span>
         </span>
