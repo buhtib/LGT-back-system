@@ -1,10 +1,10 @@
 <!-- 左侧侧边栏logo -->
 <template>
   <div class="logo">
-    <router-link :to="{name:'prolist'}">
+    <div>
       <img src="~@/assets/img/logo1.png" />
       <h1 v-if="showTitle">{{ title }}</h1>
-    </router-link>
+    </div>
   </div>
 </template>
 
@@ -40,6 +40,7 @@ export default {
   line-height: 64px;
   background: #002140;
   transition: all 0.3s;
+  user-select: none;
   img,
   svg,
   h1 {
