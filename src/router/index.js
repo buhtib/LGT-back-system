@@ -5,8 +5,6 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
 
-const Home = () =>
-    import( /* webpackChunkName: "page" */ '@/pages/home/home.vue');
 const Login = () =>
     import( /* webpackChunkName: "page" */ '@/pages/login/login.vue');
 const NotFound = () =>
