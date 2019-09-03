@@ -22,7 +22,8 @@ export default {
         pagination:{
             showSizeChanger:true,
             showQuickJumper:true,
-            total:100
+            total:100,
+            showTotal:(total, range) => `总数据条数为${total} `
         }
     },
     //加载loading
