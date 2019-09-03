@@ -1,81 +1,43 @@
 <!-- 登录 -->
 <template>
   <userLayout>
-    <a-tabs  
-      @change="handleTabClick" 
-      :activeKey="activeKey" 
-      class="main" 
-      :tabBarStyle="{ textAlign: 'center', borderBottom: 'unset' }"
-    >
-
-      <a-tab-pane :tab="tabsText.normal" key="normal" >
-        <div >
-          <a-form :form="form" @submit.prevent="_handleSubmit" class="user-layout-login">
+    <div class="main">
+        <a-form :form="form" @submit.prevent="_handleSubmit" class="user-layout-login">
             <a-form-item>
-              <a-input
+                <a-input
                 placeholder="账户:"
                 v-decorator="[
                 'user',
                 {rules: [{ required: true, message: '请输入你的账户名' }]}
-              ]"
-              >
+                ]"
+                >
                 <icon-font slot="prefix" type="icon-zhanghu" />
-              </a-input>
+                </a-input>
             </a-form-item>
             <a-form-item>
-              <a-input
+                <a-input
                 type="password"
                 placeholder="密码:"
                 v-decorator="[
-                  'psd',
-                  {rules: [{ required: true, message: '请输入你的密码' }]}
-              ]"
-              >
+                    'psd',
+                    {rules: [{ required: true, message: '请输入你的密码' }]}
+                ]"
+                >
                 <icon-font slot="prefix" type="icon-mima" />
-              </a-input>
+                </a-input>
             </a-form-item>
 
             <a-form-item>
-              <a-button
+                <a-button
                 :type="buttonIsLoading ? 'default' : 'primary'"
                 size="large"
                 html-type="submit"
                 :loading="buttonIsLoading"
                 class="login-button"
-              >登录</a-button>
+                >登录</a-button>
             </a-form-item>
-          </a-form>
-        </div>
-      </a-tab-pane>
-
-      <a-tab-pane :tab="tabsText.admin" key="admin">
-          <a-form :form="adminForm" @submit.prevent="_handleSubmit" class="user-layout-login">
-            <a-form-item>
-              <a-input
-                type="password"
-                placeholder="密码:"
-                v-decorator="[
-                  'psd',
-                  {rules: [{ required: true, message: '请输入你的密码' }]}
-              ]"
-              >
-                <icon-font slot="prefix" type="icon-mima" />
-              </a-input>
-            </a-form-item>
-
-            <a-form-item>
-              <a-button
-                :type="buttonIsLoading ? 'default' : 'primary'"
-                size="large"
-                html-type="submit"
-                :loading="buttonIsLoading"
-                class="login-button"
-              >登录</a-button>
-            </a-form-item>
-          </a-form>
-      </a-tab-pane>
-
-    </a-tabs>
+        </a-form>
+    </div>
 
   </userLayout>
 </template>
@@ -96,7 +58,6 @@ export default {
   },
   beforeCreate() {
     this.form = this.$form.createForm(this);
-    this.adminForm = this.$form.createForm(this);
   },
   created() {
     window.addEventListener("keyup", this.handleKeyup);

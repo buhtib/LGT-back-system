@@ -25,7 +25,7 @@
 <!-- 置顶组件 -->
     <div class="back-top">
       <!-- visibilityHeight 滚动高度达到此参数值才出现 BackTop -->
-      <a-back-top  visibilityHeight='400'/>
+      <a-back-top  :visibilityHeight="400"/>
       <strong style="color: rgba(64, 64, 64, 0.6)"> gray </strong>
     </div>
 
