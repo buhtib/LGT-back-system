@@ -1,4 +1,4 @@
-<!--首页 右侧中间内容块  收银单记录-->
+<!--首页 右侧中间内容块  订单管理-->
 <template>
   <div class="pro-content">
     <div class="op-section">
@@ -32,7 +32,7 @@
       <span slot="action">
         <a href="javascript:;">修改</a>
         <a-divider type="vertical" />
-        <a href="javascript:;">删除</a>
+        <a href="javascript:;" class="action-btn_delete">删除</a>
       </span>
     </a-table>
 
@@ -67,13 +67,17 @@ export default {
   min-height: 360px;
   padding: 24px;
   background: #fff;
-}
-.ant-table td {
-  white-space: nowrap;
-}
+    /deep/ .ant-table td {
+        white-space: nowrap;
+    }
 
-.op-section {
-  margin-bottom: 20px;
+    .op-section {
+        margin-bottom: 20px;
+    }
+
+    .action-btn_delete {
+        color: red;
+    }
 }
 
 

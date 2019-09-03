@@ -25,24 +25,24 @@ export const routes = [{
         path: '/prolist',
         name: 'prolist',
         component: BasicLayout,
-        redirect: '/cashRecord/cashRecord',
+        redirect: '/order/order',
         children: [{
-                path: '/cashRecord',
-                name: 'cashRecords',
+                path: '/order',
+                name: 'orders',
                 component: RouterView,
                 meta: {
                     //key 为控制左侧菜单选中的key
-                    key: 'cashRecord',
+                    key: 'orders',
                     icon: 'icon-shouyin',
-                    text: '收银单记录'
+                    text: '订单管理'
                 },
                 children: [{
-                    path: 'cashRecord',
-                    name: 'cashRecord',
-                    component: () => import( /* webpackChunkName: "page" */ '@/pages/prolist/CashRecord/CashRecord'),
+                    path: 'order',
+                    name: 'order',
+                    component: () => import( /* webpackChunkName: "page" */ '@/pages/prolist/Order/Order'),
                     meta: {
-                        key: 'cashRecord',
-                        text: '收银单记录'
+                        key: 'order',
+                        text: '订单管理'
                     },
                 }]
             },
