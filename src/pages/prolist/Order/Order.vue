@@ -22,12 +22,13 @@
 
 
     <a-table
-      :columns="columns"
-      :dataSource="data"
-      :locale="locale"
+      :columns="table.columns"
+      :dataSource="table.data"
+      :locale="table.locale"
       :loading="loading"
       @change="handlePage"
-      :rowSelection="rowSelection"
+      :rowSelection="table.rowSelection"
+      :pagination="table.pagination"
     >
       <span slot="action">
         <a href="javascript:;">修改</a>
@@ -56,6 +57,11 @@ export default {
   },
   data() {
     return data;
+  },
+  created() {
+    this.setTh()
+    this.setTableListData()
+    this.setRowSelection()
   },
 
   methods
