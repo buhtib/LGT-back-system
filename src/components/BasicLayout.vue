@@ -12,7 +12,7 @@
       <page-header  :style="{ position: 'fixed', zIndex: 1,  top:0, width: '100%', height: '64px', paddingRight:widthCalc }"/>
 
       <!-- 右边中间布局 -->
-      <a-layout-content :style="{ margin: '80px 16px 0 ' }">
+      <a-layout-content :style="{ margin: '80px 0 0 16px' }">
         
           <router-view > </router-view>
        
