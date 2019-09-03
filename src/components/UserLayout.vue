@@ -4,6 +4,18 @@
         id="userLayout"
         :class="['user-layout-wrapper']"
     >
+        <div class="video-bg">
+            <video
+                muted=""
+                data-autoplay=""
+                loop="loop"
+                autoplay="autoplay"
+                src="../../static/bg.mp4"
+                class="video-tvc"
+                id="video-tvc"
+                data-object-fit=""
+            >抱歉，您的浏览器不支持内嵌视频</video>
+        </div>
         <div class="container">
             <div class="top">
                 <div class="header">
@@ -42,6 +54,7 @@ export default {
 <style lang="less" scoped>
 #userLayout.user-layout-wrapper {
     height: 100%;
+   
 
     &.mobile {
         .container {
@@ -51,14 +64,24 @@ export default {
             }
         }
     }
-
+    .video-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        .video-tvc {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
     .container {
         width: 100%;
         min-height: 100%;
-        background: #f0f2f5 url(~@/assets/img/background.svg) no-repeat 50%;
+        // background: #f0f2f5 url(~@/assets/img/background.svg) no-repeat 50%;
         background-size: 100%;
         padding: 110px 0 144px;
         position: relative;
+        overflow: hidden;
 
         a {
             text-decoration: none;
