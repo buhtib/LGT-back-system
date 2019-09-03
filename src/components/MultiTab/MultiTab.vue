@@ -6,7 +6,7 @@
       width="260"
       :collapsed="collapsed"
        @breakpoint="onBreakpoint"
-      :style="{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0,zIndex: 2, }"
+      :style="{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0,zIndex: 2, 'background-color': '#fff' }"
     >
     <!-- 侧边栏顶部logo  -->
     <logo :showTitle="showTitle" title="LGT后台系统"/>
@@ -15,7 +15,7 @@
       :defaultSelectedKeys="defaultSelectedKeys"
       :defaultOpenKeys="tabKeysArr"
       mode="inline"
-      theme="dark"
+      theme="light"
     >
 
       <a-sub-menu :key="leftTabItem.meta.key" v-for="leftTabItem in leftTabList"  >
@@ -75,6 +75,8 @@ export default {
 };
 </script>
 
-<style>
-
+<style lang="less" scoped>
+    /deep/ .ant-layout-sider{
+        background-color: #fff;
+    }
 </style>

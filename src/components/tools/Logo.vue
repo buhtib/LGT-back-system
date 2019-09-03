@@ -38,7 +38,7 @@ export default {
   padding-left: 24px;
   overflow: hidden;
   line-height: 64px;
-  background: #002140;
+  background:rgba(0, 0, 0, .2);
   transition: all 0.3s;
   user-select: none;
   img,
@@ -54,7 +54,6 @@ export default {
     width: 32px;
   }
   h1 {
-    color: #fff;
     font-size: 20px;
     margin: 0 0 0 12px;
     font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
