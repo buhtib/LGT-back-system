@@ -5,23 +5,25 @@
         <a-form :form="form" @submit.prevent="_handleSubmit" class="user-layout-login">
             <a-form-item>
                 <a-input
-                placeholder="账户:"
-                v-decorator="[
-                'user',
-                {rules: [{ required: true, message: '请输入你的账户名' }]}
-                ]"
+                  placeholder="账户:"
+                  v-decorator="[
+                  'user',
+                  {rules: [{ required: true, message: '请输入你的账户名' }]}
+                  ]"
+                  class="input"
                 >
                 <icon-font slot="prefix" type="icon-zhanghu" />
                 </a-input>
             </a-form-item>
             <a-form-item>
                 <a-input
-                type="password"
-                placeholder="密码:"
-                v-decorator="[
-                    'psd',
-                    {rules: [{ required: true, message: '请输入你的密码' }]}
-                ]"
+                  type="password"
+                  placeholder="密码:"
+                  v-decorator="[
+                      'psd',
+                      {rules: [{ required: true, message: '请输入你的密码' }]}
+                  ]"
+                  class="input"
                 >
                 <icon-font slot="prefix" type="icon-mima" />
                 </a-input>
@@ -29,11 +31,11 @@
 
             <a-form-item>
                 <a-button
-                :type="buttonIsLoading ? 'default' : 'primary'"
-                size="large"
-                html-type="submit"
-                :loading="buttonIsLoading"
-                class="login-button"
+                  :type="buttonIsLoading ? 'default' : 'primary'"
+                  size="large"
+                  html-type="submit"
+                  :loading="buttonIsLoading"
+                  class="login-button"
                 >登录</a-button>
             </a-form-item>
         </a-form>
@@ -115,6 +117,9 @@ export default {
 
       .code-img {
         margin-top: 3px;
+      }
+      .input {
+        height: 50px;
       }
       button.login-button {
         height: 40px;
