@@ -9,4 +9,4 @@ export function timeFix () {
 }
 
 //阿里图标管理 js路径
-export const scriptUrl =  '//at.alicdn.com/t/font_1319336_m1dv3f6q18f.js';
+export const scriptUrl =  '//at.alicdn.com/t/font_1360177_e26ksaw7cvk.js';
