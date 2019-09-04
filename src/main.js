@@ -8,8 +8,10 @@ import commonComponents from '@/components'
 Vue.use(commonComponents);
 import App from './App.vue'
 import router from './router'
+import './router/permission'
 import store from './store'
 import './ui/antd-vue-ui'
+
 
 Vue.config.productionTip = false
 

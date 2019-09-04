@@ -1,21 +1,18 @@
 
-import router from './index';
+import router from './index.js';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
 router.beforeEach((to, from, next) => {
     NProgress.start();
-    console.log(to.path);
     
     if (to.path === '/') {
         next();
     } else {
         const vuexData = sessionStorage.getItem('vuex') && JSON.parse(sessionStorage.getItem('vuex'))
         const user = vuexData && vuexData.user
-        console.log(sessionStorage.getItem('vuex'));
         
-        
-        if (sessionStorage.getItem('vuex')) {
+        if (user == 'admin') {
             // 跳转到目的路由
             next()
         } else {
