@@ -44,8 +44,13 @@
                             <icon-font slot="prefix" type="icon-imgcode" />
                         </a-input>
                      </a-col>
-                    <a-col :span="8" :offset="2" >
-                        <img :src="imgCode" alt="" class="img-code">
+                    <a-col :span="8" :offset="2" @click="hash++">
+                         <a-tooltip>
+                            <template slot='title'>
+                                看不清,可以点击图片切换
+                            </template>
+                            <img :src="imgCode" alt="" class="img-code cursor_pointer">
+                        </a-tooltip>
                     </a-col>
                  </a-row>
             </a-form-item>
@@ -100,7 +105,7 @@ export default {
       return _.debounce(this.handleSubmit, 500);
     },
     imgCode() {
-        return  `http://120.79.160.28/img/vcode?${Date.now()}`
+        return  `http://120.79.160.28/img/vcode?${this.hash}`
     }
   },
   methods: {
@@ -155,6 +160,7 @@ export default {
         font-size: 16px;
       }
       .img-code {
+        position: relative;
         height: 100%;
         width: 100%;
       }

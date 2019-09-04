@@ -5,5 +5,7 @@ export default {
     /**
      * 控制 按钮是否禁用  true为禁用并变为加载状态
      */
-    buttonIsLoading: false
+    buttonIsLoading: false,
+    //图形验证码hash
+    hash:0
 }

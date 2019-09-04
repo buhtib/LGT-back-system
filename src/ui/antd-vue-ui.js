@@ -2,7 +2,7 @@ import Vue from 'vue'
 
 import { Button, Message, Form, Input, Checkbox, Spin, Col, Row, Icon, Layout, Menu, Avatar, 
   Dropdown, Modal, Notification, Tabs, Table, Tag, Divider, Breadcrumb, Select, InputNumber,
-  BackTop,LocaleProvider
+  BackTop,LocaleProvider, Tooltip
 } from 'ant-design-vue';
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = Modal.confirm
@@ -30,6 +30,7 @@ Vue.use(Select);
 Vue.use(InputNumber);
 Vue.use(BackTop);
 Vue.use(LocaleProvider);
+Vue.use(Tooltip);
 
 
 /**
