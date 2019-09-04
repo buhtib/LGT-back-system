@@ -73,7 +73,7 @@ module.exports = {
                 "target": "http://120.79.160.28",
                 "changeOrigin": true,
                 ws: true,
-                port: 20, // 端口
+                port: 22, // 端口
                 pathRewrite: {
                     '^/api': ''
                 }

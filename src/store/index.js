@@ -6,6 +6,7 @@ Vue.use(Vuex)
 
 const state = {
     nickname:'超级管理员',
+    user:'',
     avatar:'',
     /**
      * 控制左边布局 侧边栏菜单收缩
@@ -18,12 +19,17 @@ const getters = {}
 const mutations = {
     changeCollapsed(state, collapsed) {
         state.collapsed = collapsed
-    }
+    },
+    keepUser(state, user) {
+        state.user = user
+    },
+    
 }
 
 const actions = {
     Logout({ commit, state }) {
-    }
+
+    },
 }
 
 export default new Vuex.Store({
@@ -31,5 +37,5 @@ export default new Vuex.Store({
     getters,
     mutations,
     actions,
-    plugins: [vuexForever.persistedstate('localStorage', ['TOKEN'])]
+    plugins: [vuexForever.persistedstate('sessionStorage', ['user'])]
 })

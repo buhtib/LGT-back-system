@@ -136,7 +136,20 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
     NProgress.start();
-    next();
+    if (to.path === '/') {
+        next();
+    } else {
+        const vuexData = JSON.parse(sessionStorage.getItem('vuex'))
+        const user = vuexData && vuexData.user
+        
+        if (user === 'admin') {
+            // 跳转到目的路由
+            next()
+        } else {
+            next('/')
+            NProgress.done();
+        }
+    }
 })
 
 

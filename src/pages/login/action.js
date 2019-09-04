@@ -19,26 +19,21 @@ export default {
 
     form.validateFields( err => {
       if (!err) {
-        const psd =_md5(form.getFieldValue('psd'))
         this.buttonIsLoading = true;
-        console.log(form.getFieldsValue(), psd);
-        
-        let param = {
+        const psd =_md5(form.getFieldValue('psd'))
+        let params = {
           ...form.getFieldsValue(),
           psd
         }
+
         //登陆请求
-        // _fetch('login', param, 'POST')
-        // .then(data=>{
-        //   this._callBackLogin(data);
-        // })
-        // .finally(() => {
-        //   this.buttonIsLoading = false;
-        // })
-
-        // test
-          this._callBackLogin(param);
-
+        _axios.post('login', params)
+        .then(data=>{
+          this._callBackLogin(data);
+        })
+        .finally(() => {
+          this.buttonIsLoading = false;
+        })
       }
     });
   },

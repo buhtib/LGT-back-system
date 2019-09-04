@@ -47,6 +47,7 @@
 <script>
 import data from "./store.js";
 import methods from "./action.js";
+import { mapState } from 'vuex'
 
 // 包含头部和尾部的 布局组件
 import userLayout from "@/components/UserLayout.vue";
@@ -64,8 +65,12 @@ export default {
   created() {
     window.addEventListener("keyup", this.handleKeyup);
   },
+  mounted() {
+      //赋值 输入账号input
+    this.form.setFieldsValue({ user:this.user });
+  },
   computed: {
-
+    ...mapState(['user']),
     /**
      * 防抖登陆
      */
@@ -79,17 +84,14 @@ export default {
      * @param {object} data请求得到的数据
      */
     _callBackLogin(data) {
-      // if (data.status === 0) {
-
-      //   window.location.href = "/waiting.html";
-      // }else {
-      //   _message().error('账号名或密码错误或验证码')
-      // }
-          this.buttonIsLoading = false;
-
-      this.$router.replace({
-        name: "prolist"
-      });
+        if (data.success) {
+            this.$store.commit('keepUser', 'admin')
+            this.$router.replace({
+                name: "prolist"
+            });
+        }else {
+            _message().error('账号名或密码错误或验证码')
+        }
     },
     ...methods
   },
