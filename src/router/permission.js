@@ -16,6 +16,7 @@ router.beforeEach((to, from, next) => {
             // 跳转到目的路由
             next()
         } else {
+            _message(2).error('请先进行登陆好吧')
             next('/')
             NProgress.done();
         }
