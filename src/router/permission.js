@@ -5,13 +5,17 @@ import 'nprogress/nprogress.css';
 
 router.beforeEach((to, from, next) => {
     NProgress.start();
+    console.log(to.path);
+    
     if (to.path === '/') {
         next();
     } else {
         const vuexData = sessionStorage.getItem('vuex') && JSON.parse(sessionStorage.getItem('vuex'))
-        // const user = vuexData && vuexData.user
+        const user = vuexData && vuexData.user
+        console.log(sessionStorage.getItem('vuex'));
         
-        if (vuexData.user) {
+        
+        if (sessionStorage.getItem('vuex')) {
             // 跳转到目的路由
             next()
         } else {
