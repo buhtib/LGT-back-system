@@ -1,9 +1,6 @@
 /* eslint-disable */
 import Vue from 'vue';
 import Router from 'vue-router';
-import NProgress from 'nprogress';
-import 'nprogress/nprogress.css';
-
 
 const Login = () =>
     import( /* webpackChunkName: "page" */ '@/pages/login/login.vue');
@@ -132,30 +129,6 @@ const router = new Router({
     base: '/',
     mode: 'hash',
     routes
-})
-
-router.beforeEach((to, from, next) => {
-    NProgress.start();
-    if (to.path === '/') {
-        next();
-    } else {
-        const vuexData = JSON.parse(sessionStorage.getItem('vuex'))
-        const user = vuexData && vuexData.user
-        
-        if (user === 'admin') {
-            // 跳转到目的路由
-            next()
-        } else {
-            next('/')
-            NProgress.done();
-        }
-    }
-})
-
-
-router.afterEach((to, from) => {
-    // 做一些额外处理，比如进度条的效果
-    NProgress.done();
 })
 
 export default router;
