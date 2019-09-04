@@ -12,7 +12,7 @@
                   ]"
                   class="input"
                 >
-                <icon-font slot="prefix" type="icon-zhanghu" />
+                    <icon-font slot="prefix" type="icon-zhanghu" />
                 </a-input>
             </a-form-item>
             <a-form-item>
@@ -25,9 +25,31 @@
                   ]"
                   class="input"
                 >
-                <icon-font slot="prefix" type="icon-mima" />
+                    <icon-font slot="prefix" type="icon-mima" />
                 </a-input>
             </a-form-item>
+             <a-form-item>
+                 <a-row type="flex">
+                     <a-col :span="14">
+                        <a-input
+                            size="large"
+                            type="text"
+                            placeholder="验证码:"
+                            v-decorator="[
+                                'code',
+                                {rules: [{ required: true, message: '请输入验证码' }]}
+                            ]"
+                            class="input"
+                        >
+                            <icon-font slot="prefix" type="icon-imgcode" />
+                        </a-input>
+                     </a-col>
+                    <a-col :span="8" :offset="2" >
+                        <img :src="imgCode" alt="" class="img-code">
+                    </a-col>
+                 </a-row>
+            </a-form-item>
+            
 
             <a-form-item>
                 <a-button
@@ -76,6 +98,9 @@ export default {
      */
     _handleSubmit() {
       return _.debounce(this.handleSubmit, 500);
+    },
+    imgCode() {
+        return  `http://120.79.160.28/img/vcode?${Date.now()}`
     }
   },
   methods: {
@@ -128,6 +153,10 @@ export default {
         width: 100%;
         padding: 0 15px;
         font-size: 16px;
+      }
+      .img-code {
+        height: 100%;
+        width: 100%;
       }
     }
     /deep/ .ant-input-prefix {
