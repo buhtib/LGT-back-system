@@ -121,6 +121,7 @@ export default {
             });
         }else {
             _message().error('账号名或密码错误或验证码')
+            this.hash ++
         }
     },
     ...methods
