@@ -6,7 +6,7 @@ import 'nprogress/nprogress.css';
 router.beforeEach((to, from, next) => {
     NProgress.start();
     
-    if (to.path === '/') {
+    if (to.path === '/' || to.path === '/mobile') {
         next();
     } else {
         const vuexData = sessionStorage.getItem('vuex') && JSON.parse(sessionStorage.getItem('vuex'))

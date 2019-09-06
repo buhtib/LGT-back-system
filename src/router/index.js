@@ -6,6 +6,8 @@ const Login = () =>
     import( /* webpackChunkName: "page" */ '@/pages/login/login.vue');
 const NotFound = () =>
     import( /* webpackChunkName: "page" */ '@/pages/notFound.vue');
+const isMobile = () =>
+    import( /* webpackChunkName: "page" */ '@/pages/isMobile.vue');
 const BasicLayout = () =>
     import( /* webpackChunkName: "page" */ '@/components/BasicLayout.vue');
 const RouterView = () =>
@@ -114,6 +116,11 @@ export const routes = [{
                 }, ]
             },
         ]
+    },
+    {
+        name: 'mobile',
+        path: '/mobile',
+        component: isMobile
     },
     {
         name: '404',
